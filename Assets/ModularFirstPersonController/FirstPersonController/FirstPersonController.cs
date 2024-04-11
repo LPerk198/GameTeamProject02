@@ -163,7 +163,7 @@ public class FirstPersonController : MonoBehaviour
         }
         else
         {
-            crosshairObject.gameObject.SetActive(false);
+            //crosshairObject.gameObject.SetActive(false);
         }
 
         #region Sprint Bar
@@ -184,10 +184,12 @@ public class FirstPersonController : MonoBehaviour
             sprintBarBG.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
             sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth - 2, sprintBarHeight - 2, 0f);
 
+            /*
             if(hideBarWhenFull)
             {
-                sprintBarCG.alpha = 0;
+                sprintBarBG.alpha = 0;
             }
+            */
         }
         else
         {
@@ -407,10 +409,12 @@ public class FirstPersonController : MonoBehaviour
                         Crouch();
                     }
 
+                    /*
                     if (hideBarWhenFull && !unlimitedSprint)
                     {
-                        sprintBarCG.alpha += 5 * Time.deltaTime;
+                        sprintBarBG.alpha += 5 * Time.deltaTime;
                     }
+                    */
                 }
 
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
@@ -420,10 +424,12 @@ public class FirstPersonController : MonoBehaviour
             {
                 isSprinting = false;
 
+                /*
                 if (hideBarWhenFull && sprintRemaining == sprintDuration)
                 {
-                    sprintBarCG.alpha -= 3 * Time.deltaTime;
+                    sprintBarBG.alpha -= 3 * Time.deltaTime;
                 }
+                */
 
                 targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
