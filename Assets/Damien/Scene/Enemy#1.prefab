@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7497086277105733681}
   - component: {fileID: -2959860858151875752}
   - component: {fileID: 3200627624050440304}
+  - component: {fileID: -5291224135817067764}
   m_Layer: 0
   m_Name: Enemy#1
   m_TagString: Untagged
@@ -154,3 +155,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4883791134169165829}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &-5291224135817067764
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883791134169165829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
