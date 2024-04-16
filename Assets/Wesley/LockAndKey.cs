@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockAndKey : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LockAndKey : MonoBehaviour
     private Vector3 targetPosition;
     public float waitSeconds;
     public GameObject doorOpenTxt;
+    public Image doorInd;
+    public GameObject keyUI;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,9 @@ public class LockAndKey : MonoBehaviour
     {
         yield return new WaitForSeconds(waitSeconds);
         gameObject.transform.position += Vector3.down * 1000f;
+        keyUI.SetActive(true);
         doorOpenTxt.SetActive(true);
+        doorInd.color = new Color(doorInd.color.r, doorInd.color.g, doorInd.color.b, 255);
         while (door.transform.position != targetPosition)
         {
             door.transform.position = Vector3.MoveTowards(door.transform.position, targetPosition, doorSpeed * Time.deltaTime);
