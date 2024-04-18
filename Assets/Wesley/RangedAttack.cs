@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class RangedAttack : MonoBehaviour
 {
     private float creationTime;
 
@@ -10,14 +10,13 @@ public class MeleeAttack : MonoBehaviour
     void Start()
     {
         creationTime = Time.time;
-        transform.Rotate(0, 0, 45f, Space.Self);
+        transform.Rotate(90f, 0, 0, Space.World);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(200f * Time.deltaTime, 0, 0, Space.World);
-        if (creationTime + 1 < Time.time)
+        if (creationTime + 10 < Time.time)
         {
             Destroy(gameObject);
         }
