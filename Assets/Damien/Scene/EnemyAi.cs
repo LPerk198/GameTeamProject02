@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
+    public Animator animator;
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround,whatIsPlayer;
@@ -41,6 +42,7 @@ public class EnemyAi : MonoBehaviour
     }
 
     private void Patroling(){
+        Walk();
         if(!walkPointSet) SearchWalkPoint();
 
         if(walkPointSet)
@@ -67,11 +69,13 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Walk();
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
+        Idle();
         //Make sure enemy does not move
         agent.SetDestination(transform.position);
 
@@ -102,5 +106,43 @@ public class EnemyAi : MonoBehaviour
 
     private void DestroyEnemy(){
         Destroy(gameObject);
+    }
+
+
+    // Use this for initialization
+    void Start () {
+        animator = GetComponent<Animator>();
+    }
+
+    public void Idle ()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool ("Walk", false);
+        animator.SetBool ("SprintJump", false);
+        animator.SetBool ("SprintSlide", false);
+    }
+
+    public void Walk ()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool ("Walk", true);
+        animator.SetBool ("SprintJump", false);
+        animator.SetBool ("SprintSlide", false);
+    }
+
+    public void SprintJump()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool ("Walk", false);
+        animator.SetBool ("SprintJump", true);
+        animator.SetBool ("SprintSlide", false);
+    }
+
+    public void SprintSlide()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool ("Walk", false);
+        animator.SetBool ("SprintJump", false);
+        animator.SetBool ("SprintSlide", true);
     }
 }
