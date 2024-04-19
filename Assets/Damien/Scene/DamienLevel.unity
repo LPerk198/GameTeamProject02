@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -734,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974808, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974808, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Center.y
@@ -753,8 +753,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
+      propertyPath: m_AgentTypeID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Acceleration
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
+      propertyPath: avoidancePriority
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_StoppingDistance
@@ -771,6 +779,10 @@ PrefabInstance:
     - target: {fileID: 6317564911962974810, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: attackRange
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317564911962974810, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
+      propertyPath: walkPointRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6317564912181354505, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Controller
@@ -2012,6 +2024,10 @@ PrefabInstance:
       value: 1.9840889
       objectReference: {fileID: 0}
     - target: {fileID: 2632886966870682496, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2632886966870682496, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
       propertyPath: m_Center.y
       value: 1.0309992
       objectReference: {fileID: 0}
@@ -2024,8 +2040,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2632886966870682497, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
+      propertyPath: m_AgentTypeID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2632886966870682497, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
       propertyPath: m_Acceleration
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2632886966870682497, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
+      propertyPath: avoidancePriority
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 2632886966870682498, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
       propertyPath: player
@@ -2042,6 +2066,10 @@ PrefabInstance:
     - target: {fileID: 2632886966870682498, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
       propertyPath: attackRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2632886966870682498, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
+      propertyPath: walkPointRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2632886966870682511, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
       propertyPath: m_Constraints
@@ -3229,7 +3257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974808, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974808, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Center.y
@@ -3241,7 +3269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_BaseOffset
@@ -3250,6 +3278,10 @@ PrefabInstance:
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Acceleration
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
+      propertyPath: avoidancePriority
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 6317564911962974809, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_StoppingDistance
@@ -3266,6 +3298,10 @@ PrefabInstance:
     - target: {fileID: 6317564911962974810, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: attackRange
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317564911962974810, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
+      propertyPath: walkPointRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6317564912181354505, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
       propertyPath: m_Controller
@@ -3644,7 +3680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567778426036665178, guid: c00ecfa9e008e304ca87beda15e69f43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.24
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 1567778426036665178, guid: c00ecfa9e008e304ca87beda15e69f43, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3652,7 +3688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567778426036665178, guid: c00ecfa9e008e304ca87beda15e69f43, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3184
+      value: -5.32
       objectReference: {fileID: 0}
     - target: {fileID: 1567778426036665178, guid: c00ecfa9e008e304ca87beda15e69f43, type: 3}
       propertyPath: m_LocalRotation.w
