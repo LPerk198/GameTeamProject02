@@ -10,6 +10,7 @@ public class EnemyAi : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround,whatIsPlayer;
     public float health;
+    private Rigidbody rb;
 
     //Patroling
     public Vector3 walkPoint;
@@ -28,6 +29,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        rb= GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -79,7 +81,7 @@ public class EnemyAi : MonoBehaviour
         //Make sure enemy does not move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        rb.transform.LookAt(player);
 
         if(!alreadyAttacked){
 
