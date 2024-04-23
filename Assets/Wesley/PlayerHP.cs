@@ -8,10 +8,12 @@ public class PlayerHP : MonoBehaviour
     public int playerHP;
     public TMP_Text hpCount;
     public GameObject gameOverUI;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         hpCount.SetText("HP: " + playerHP);
     }
 
