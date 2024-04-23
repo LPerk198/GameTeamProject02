@@ -17,6 +17,10 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    public GameObject arrowPrefab;
+    private float fireCD = 2.0f;
+    private float lastFire;
+    public GameObject emptyFace;
 
     #region Camera Movement Variables
 
@@ -364,6 +368,18 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if(lastFire + fireCD < Time.time)
+            {
+                lastFire = Time.time;
+                Rigidbody rb = Instantiate(arrowPrefab, transform.position, transform.rotation).GetComponent<Rigidbody>();
+                rb.gameObject.transform.LookAt(emptyFace.transform);
+                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+                rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -559,6 +575,8 @@ public class FirstPersonController : MonoBehaviour
         GUILayout.Label("By Jess Case", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
         GUILayout.Label("version 1.0.1", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
         EditorGUILayout.Space();
+        fpc.arrowPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Prefab", "peepee poo poo lmfao"), fpc.arrowPrefab, typeof(GameObject), true);
+        fpc.emptyFace = (GameObject)EditorGUILayout.ObjectField(new GUIContent("sex goes here -->", "aaaaaaa"), fpc.emptyFace, typeof(GameObject), true);
 
         #region Camera Setup
 

@@ -85,8 +85,8 @@ public class EnemyAi : MonoBehaviour
 
             //Attack Code 
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 2f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), 2f);
@@ -101,7 +101,7 @@ public class EnemyAi : MonoBehaviour
     public void TakeDamage(int damage){
         health -= damage;
 
-        if(health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if(health <= 0) Invoke(nameof(DestroyEnemy), 0.1f);
     }
 
     private void DestroyEnemy(){
@@ -144,5 +144,14 @@ public class EnemyAi : MonoBehaviour
         animator.SetBool ("Walk", false);
         animator.SetBool ("SprintJump", false);
         animator.SetBool ("SprintSlide", true);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerProj"))
+        {
+            TakeDamage(1);
+            Debug.Log("Hit");
+        }
     }
 }
