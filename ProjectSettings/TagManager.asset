@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectile
   - SpawnPoint
+  - PlayerProj
   layers:
   - Default
   - TransparentFX

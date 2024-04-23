@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     private float creationTime;
 
@@ -10,13 +10,14 @@ public class RangedAttack : MonoBehaviour
     void Start()
     {
         creationTime = Time.time;
-        transform.Rotate(90f, 0, 0, Space.World);
+        transform.Translate(Vector3.left * 0.03f, Space.Self);
+        transform.Rotate(-90f, 0, 0, Space.Self);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (creationTime + 3 < Time.time)
+        if (creationTime + 10 < Time.time)
         {
             Destroy(gameObject);
         }
