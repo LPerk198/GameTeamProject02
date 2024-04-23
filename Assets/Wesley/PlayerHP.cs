@@ -23,6 +23,7 @@ public class PlayerHP : MonoBehaviour
         if(playerHP <= 0){
             gameOverUI.SetActive(true);
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
