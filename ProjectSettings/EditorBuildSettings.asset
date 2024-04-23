@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Damien/Scene/Final Level.unity
+    guid: 435a5aa28c7464110af9e8ed037e7774
   m_configObjects: {}
