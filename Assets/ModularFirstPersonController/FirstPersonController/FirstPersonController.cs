@@ -21,6 +21,7 @@ public class FirstPersonController : MonoBehaviour
     private float fireCD = 2.0f;
     private float lastFire;
     public GameObject emptyFace;
+    public GameObject arrowVisible;
 
     #region Camera Movement Variables
 
@@ -376,9 +377,17 @@ public class FirstPersonController : MonoBehaviour
                 lastFire = Time.time;
                 Rigidbody rb = Instantiate(arrowPrefab, transform.position, transform.rotation).GetComponent<Rigidbody>();
                 rb.gameObject.transform.LookAt(emptyFace.transform);
-                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+                rb.AddForce(playerCamera.transform.forward * 32f, ForceMode.Impulse);
                 rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             }
+        }
+        if(lastFire + fireCD > Time.time)
+        {
+            arrowVisible.SetActive(false);
+        }
+        else
+        {
+            arrowVisible.SetActive(true);
         }
     }
 
@@ -577,6 +586,7 @@ public class FirstPersonController : MonoBehaviour
         EditorGUILayout.Space();
         fpc.arrowPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Prefab", "peepee poo poo lmfao"), fpc.arrowPrefab, typeof(GameObject), true);
         fpc.emptyFace = (GameObject)EditorGUILayout.ObjectField(new GUIContent("sex goes here -->", "aaaaaaa"), fpc.emptyFace, typeof(GameObject), true);
+        fpc.arrowVisible = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Visible Arrow", "what is this one for"), fpc.arrowVisible, typeof(GameObject), true);
 
         #region Camera Setup
 
