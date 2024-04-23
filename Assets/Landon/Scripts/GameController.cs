@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
         foreach (GameObject p in spawnPoints)
         {
             Vector3 spawnPos = p.transform.position;
-            GameObject enemy = Instantiate(enemyPrefabs[0], spawnPos, Quaternion.identity, transform.Find("Enemies").transform);
+            GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPos, Quaternion.identity, transform.Find("Enemies").transform);
             enemyList.Add(enemy);
         }
     }
@@ -41,8 +41,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void enemyKilled()
+    public void enemyKilled(GameObject enemy)
     {
+        enemyList.Remove(enemy);
         if(enemyList.Count <= 0) 
         {
             allEnemiesKilled();

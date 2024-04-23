@@ -10,6 +10,7 @@ public class EnemyAi : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround,whatIsPlayer;
     public float health;
+    private GameController gameController;
 
     //Patroling
     public Vector3 walkPoint;
@@ -28,6 +29,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     private void Update()
@@ -101,7 +103,11 @@ public class EnemyAi : MonoBehaviour
     public void TakeDamage(int damage){
         health -= damage;
 
-        if(health <= 0) Invoke(nameof(DestroyEnemy), 0.1f);
+        if (health <= 0)
+        {
+            gameController.enemyKilled(gameObject);
+            Invoke(nameof(DestroyEnemy), 0.1f);
+        }
     }
 
     private void DestroyEnemy(){
