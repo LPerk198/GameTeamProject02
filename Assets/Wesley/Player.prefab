@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1048959460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048959461}
+  m_Layer: 0
+  m_Name: PlayerLookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1048959461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048959460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3881462509595980164}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3881462509154503899
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +45,8 @@ GameObject:
   - component: {fileID: 3881462509154503897}
   - component: {fileID: 3881462509154503896}
   - component: {fileID: 3881462509154503901}
-  m_Layer: 0
+  - component: {fileID: 501574938}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -113,6 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 3173405161129362351, guid: 83aeff18c38673244ba5dfc0cea8a8c1, type: 3}
+  emptyFace: {fileID: 1048959460}
+  arrowVisible: {fileID: 3881462508174337221}
   playerCamera: {fileID: 3881462509595980167}
   fov: 90
   invertCamera: 0
@@ -173,6 +208,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &501574938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881462509154503899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f232fe5e5c0720419f0727dc3e07bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: 3
+  hpCount: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3881462509595980161
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +235,7 @@ GameObject:
   - component: {fileID: 3881462509595980164}
   - component: {fileID: 3881462509595980167}
   - component: {fileID: 3881462509595980166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -204,6 +255,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3881462508279986193}
+  - {fileID: 1048959461}
   m_Father: {fileID: 3881462509154503900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,7 +319,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_Name
@@ -275,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_RootOrder
@@ -343,6 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 971de6301b09f154e81f6b27862d54a2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
+--- !u!1 &3881462508174337221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
+  m_PrefabInstance: {fileID: 3881462508174434919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3881462508279587475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,7 +409,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 022a72268e462114788abcf0c0b07418, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 022a72268e462114788abcf0c0b07418, type: 3}
       propertyPath: m_Name
@@ -360,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 022a72268e462114788abcf0c0b07418, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 022a72268e462114788abcf0c0b07418, type: 3}
       propertyPath: m_LocalPosition.y
