@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour
 {
     public int playerHP;
     public TMP_Text hpCount;
+    public GameObject gameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,10 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerHP <= 0){
+            gameOverUI.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     void OnTriggerEnter(Collider other)
