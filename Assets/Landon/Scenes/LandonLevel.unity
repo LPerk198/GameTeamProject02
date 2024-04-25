@@ -176,6 +176,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6317564912190870467, guid: ed3cbc77e3ec8bd49902bef53619aed9, type: 3}
   - {fileID: 2632886967129903643, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
+  - {fileID: 2632886967129903643, guid: 444c7db65fce72e49950e2396293c7d2, type: 3}
   waveAmount: 1
   gameOverUI: {fileID: 1070868105}
 --- !u!1001 &224448558
