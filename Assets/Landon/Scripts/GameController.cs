@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] int waveAmount;
+    public GameObject gameOverUI;
+
+    private GameObject confetti;
 
     private GameObject[] spawnPoints;
     private List<GameObject> enemyList = new List<GameObject>();
@@ -17,6 +20,8 @@ public class GameController : MonoBehaviour
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         allEnemiesKilled();
+        confetti = GameObject.FindGameObjectWithTag("VictoryConfetti");
+        confetti.SetActive(false);
     }
 
     private void spawnWave()
@@ -38,6 +43,9 @@ public class GameController : MonoBehaviour
         } else
         {
             // Pop up next level UI
+            confetti.SetActive(true);
+            gameOverUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
