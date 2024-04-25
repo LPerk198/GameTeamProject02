@@ -23,6 +23,7 @@ public class FirstPersonController : MonoBehaviour
     public GameObject emptyFace;
     public GameObject arrowVisible;
     private BowSounds bowAudio;
+    private AudioSource footsteps;
 
     #region Camera Movement Variables
 
@@ -158,6 +159,7 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         bowAudio = GameObject.Find("Elven Long Bow").transform.Find("default").GetComponent<BowSounds>();
+        footsteps = GetComponents<AudioSource>()[1];
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -416,10 +418,12 @@ public class FirstPersonController : MonoBehaviour
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
             {
                 isWalking = true;
+                footsteps.mute = false;
             }
             else
             {
                 isWalking = false;
+                footsteps.mute = true;
             }
 
             // All movement calculations shile sprint is active
