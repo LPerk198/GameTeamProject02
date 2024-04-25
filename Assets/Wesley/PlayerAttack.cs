@@ -10,8 +10,6 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         creationTime = Time.time;
-        transform.Translate(Vector3.left * 0.03f, Space.Self);
-        transform.Rotate(-90f, 0, 0, Space.Self);
     }
 
     // Update is called once per frame
