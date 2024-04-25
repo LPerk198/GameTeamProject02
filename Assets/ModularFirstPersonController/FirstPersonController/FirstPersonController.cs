@@ -22,6 +22,7 @@ public class FirstPersonController : MonoBehaviour
     private float lastFire;
     public GameObject emptyFace;
     public GameObject arrowVisible;
+    private BowSounds bowAudio;
 
     #region Camera Movement Variables
 
@@ -156,7 +157,8 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
-        if(lockCursor)
+        bowAudio = GameObject.Find("Elven Long Bow").transform.Find("default").GetComponent<BowSounds>();
+        if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -383,11 +385,20 @@ public class FirstPersonController : MonoBehaviour
         }
         if(lastFire + fireCD > Time.time)
         {
-            arrowVisible.SetActive(false);
+            if(arrowVisible.activeSelf)
+            {
+                arrowVisible.SetActive(false);
+                bowAudio.playReleaseSound();
+            }
         }
         else
         {
-            arrowVisible.SetActive(true);
+            if(!arrowVisible.activeSelf)
+            {
+                bowAudio.playLoadSound();
+                arrowVisible.SetActive(true);
+            }
+
         }
     }
 
@@ -587,7 +598,6 @@ public class FirstPersonController : MonoBehaviour
         fpc.arrowPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Prefab", "peepee poo poo lmfao"), fpc.arrowPrefab, typeof(GameObject), true);
         fpc.emptyFace = (GameObject)EditorGUILayout.ObjectField(new GUIContent("sex goes here -->", "aaaaaaa"), fpc.emptyFace, typeof(GameObject), true);
         fpc.arrowVisible = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Visible Arrow", "what is this one for"), fpc.arrowVisible, typeof(GameObject), true);
-
         #region Camera Setup
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
