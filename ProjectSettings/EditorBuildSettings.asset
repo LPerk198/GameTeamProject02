@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Damien/Scene/Final Level.unity
-    guid: 435a5aa28c7464110af9e8ed037e7774
-  - enabled: 1
     path: Assets/Damien/Scene/MainMenu.unity
     guid: fd1b96992a693457e97356418944812a
   - enabled: 1
+    path: Assets/Damien/Scene/Final Level.unity
+    guid: 435a5aa28c7464110af9e8ed037e7774
+  - enabled: 1
     path: Assets/Landon/Scenes/LandonLevel.unity
     guid: a3867fb7c25f5964fa065a93b245d008
+  - enabled: 1
+    path: Assets/Landon/Scenes/Backrooms.unity
+    guid: a746eed4d039b864ab181f79024389e5
   m_configObjects: {}
