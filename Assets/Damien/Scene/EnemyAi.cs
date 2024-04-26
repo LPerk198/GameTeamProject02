@@ -12,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     public float health;
     private Rigidbody rb;
     private GameController gameController;
+    public GameObject deathParticles;
 
     //Patroling
     public Vector3 walkPoint;
@@ -108,6 +109,9 @@ public class EnemyAi : MonoBehaviour
         if (health <= 0)
         {
             gameController.enemyKilled(gameObject);
+            ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+            particles.GetComponent<ParticleSystem>().Play();
+            Destroy(particles.gameObject, 3);
             Invoke(nameof(DestroyEnemy), 0.1f);
         }
     }

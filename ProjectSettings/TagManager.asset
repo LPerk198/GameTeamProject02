@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - PlayerProj
   - VictoryConfetti
+  - EnemyDeathParticle
   layers:
   - Default
   - TransparentFX
