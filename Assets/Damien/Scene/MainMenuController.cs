@@ -22,6 +22,6 @@ public class MainMenuController : MonoBehaviour
    }
 
    public void Level4(){
-    
-   }
+        SceneManager.LoadScene(4);
+    }
 }

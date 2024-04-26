@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Landon/Scenes/Backrooms.unity
     guid: a746eed4d039b864ab181f79024389e5
+  - enabled: 1
+    path: Assets/Wesley/WesleyScene.unity
+    guid: 388572d8105727548a95f058746b81db
   m_configObjects: {}
