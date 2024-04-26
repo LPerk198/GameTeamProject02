@@ -1953,6 +1953,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   health: 3
+  deathParticles: {fileID: 7076046434803353722, guid: 0bebb1fb71029a04887bba8376c327bf, type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   alreadyAttacked: 0
