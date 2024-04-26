@@ -110,8 +110,9 @@ public class EnemyAi : MonoBehaviour
         {
             gameController.enemyKilled(gameObject);
             ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+            Debug.Log(transform.position.y);
+            particles.transform.Rotate(new Vector3(-90, 0, 0));
             particles.GetComponent<ParticleSystem>().Play();
-            Destroy(particles.gameObject, 3);
             Invoke(nameof(DestroyEnemy), 0.1f);
         }
     }
